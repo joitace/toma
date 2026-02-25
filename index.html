@@ -29,16 +29,21 @@
             align-items: start;
         }
         .clean-btn {
+            position: fixed;
+            bottom: 30px;
+            left: 20px;
             z-index: 10;
+            pointer-events: auto;
             font-family: sans-serif;
             font-size: 15px;
             color: white;
             text-shadow: 0 0 10px #000000;
             user-select: none;
-            padding: 0 0 15px 25px;
             cursor: pointer;
             text-decoration: underline;
             opacity: .7;
+            transition: opacity 0.3s;
+        }
         }
         .clean-btn:hover {
             opacity: 1;
@@ -245,16 +250,10 @@
         const cleanBtn = document.querySelector("#limparTela");
 
         const pointer = {
-            x: .66,
-            y: .3,
-            clicked: true,
+            x: -10,
+            y: -10,
+            clicked: false,
         };
-
-        window.setTimeout(() => {
-            pointer.x = .75;
-            pointer.y = .5;
-            pointer.clicked = true;
-        }, 700);
 
         let basicMaterial, shaderMaterial;
         let renderer = new THREE.WebGLRenderer({
